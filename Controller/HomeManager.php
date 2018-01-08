@@ -61,6 +61,7 @@ if (isset($_POST['createBtn'])) {
 
                 $error = array(
                     'type' => "Signin error !",
+                    'class' => "alert-danger",
                     'message' => "The nickname you have entered is seem to not be valid, please choose an other one (Every char is valid , maxlenght : 50 , can't be empty).",
                 );
 
@@ -70,12 +71,11 @@ if (isset($_POST['createBtn'])) {
 
         $error = array(
             'type' => "Signin error !",
+            'class' => "alert-danger",
             'message' => "The nickname you have entered is seem to be already used, please choose an other one or load this one.",
         );
 
     }
-
-
 
 }
 else if (isset($_POST['loadBtn'])) {
@@ -90,6 +90,7 @@ else if (isset($_POST['loadBtn'])) {
 
         $error = array(
             'type' => "Login error !",
+            'class' => "alert-danger",
             'message' => "The nickname you have entered is seem to not exist, please choose an other one or create this one.",
         );
 
@@ -97,7 +98,13 @@ else if (isset($_POST['loadBtn'])) {
 
 }
 
-
+if ($error == null) {
+    $error = array(
+        'type' => "Welcome to RPGame !",
+        'class' => "alert-info",
+        'message' => "Load or create an account to play at our game.",
+    );
+}
 
 
 if ($_SESSION == null) {

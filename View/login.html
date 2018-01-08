@@ -10,23 +10,9 @@
 						<strong> Our community ! </strong> <br> We're already <?= $manager->count() ?> players
 					</div>
 
-					<?php
-					if ( $error != null ) {
-
-						echo
-						'<div class="alert alert-danger mt-3 col-11" role="alert">
-							<strong> '.$error["type"].' </strong> <br> '.$error["message"].'
-						</div>';
-
-					} else {
-
-						echo
-						'<div class="alert alert-info mt-3 col-11" role="alert">
-							<strong> Welcome to RPGame ! </strong> <br> Load or create an account to play at our game.
-						</div>';
-
-					}
-					?>
+					<div class="alert <?= $error['class'] ?> mt-3 col-11" role="alert">
+						<strong> <?= $error["type"] ?> </strong> <br> <?= $error["message"] ?>
+					</div>
 
 					<form action="?page=home" method="post" class="mt-4 col-11">
 
