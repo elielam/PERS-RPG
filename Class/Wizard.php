@@ -12,6 +12,10 @@ class Wizard extends Personnage
     private $_life;
     private $_degat;
     private $_armor;
+    private $_agi;
+    private $_str;
+    private $_dex;
+    private $_luck;
 
     public function __construct(array $donnees)
     {
@@ -19,6 +23,10 @@ class Wizard extends Personnage
         $this->_life = 50;
         $this->_degat = 200;
         $this->_armor = 50;
+        $this->_agi = 0;
+        $this->_str = 0;
+        $this->_dex = 0;
+        $this->_luck = 0;
     }
 
     /**
@@ -67,6 +75,70 @@ class Wizard extends Personnage
     public function setArmor($armor)
     {
         $this->_armor = $armor;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAgi()
+    {
+        return $this->_agi;
+    }
+
+    /**
+     * @param int $agi
+     */
+    public function setAgi($agi)
+    {
+        $this->_agi = $agi;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStr()
+    {
+        return $this->_str;
+    }
+
+    /**
+     * @param int $str
+     */
+    public function setStr($str)
+    {
+        $this->_str = $str;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDex()
+    {
+        return $this->_dex;
+    }
+
+    /**
+     * @param int $dex
+     */
+    public function setDex($dex)
+    {
+        $this->_dex = $dex;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLuck()
+    {
+        return $this->_luck;
+    }
+
+    /**
+     * @param int $luck
+     */
+    public function setLuck($luck)
+    {
+        $this->_luck = $luck;
     }
 
 }

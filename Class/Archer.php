@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: c03735
- * Date: 04/01/2018
- * Time: 12:38
+ * Date: 08/01/2018
+ * Time: 16:55
  */
 
-class Fighter extends Personnage
+class Archer extends Personnage
 {
 
     private $_life;
@@ -20,9 +20,9 @@ class Fighter extends Personnage
     public function __construct(array $donnees)
     {
         parent::__construct($donnees);
-        $this->_life = 100;
-        $this->_degat = 150;
-        $this->_armor = 200;
+        $this->_life = 50;
+        $this->_degat = 200;
+        $this->_armor = 50;
         $this->_agi = 0;
         $this->_str = 0;
         $this->_dex = 0;
