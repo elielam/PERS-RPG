@@ -3,10 +3,10 @@
  * Created by PhpStorm.
  * User: c03735
  * Date: 08/01/2018
- * Time: 14:45
+ * Time: 17:21
  */
 
-class Thief extends Personnage
+class Summoner extends Personnage
 {
 
     private $_life;
@@ -26,7 +26,7 @@ class Thief extends Personnage
         $this->_agi = 0;
         $this->_str = 0;
         $this->_dex = 0;
-        $this->_luck = 62;
+        $this->_luck = 0;
     }
 
     /**
@@ -78,7 +78,7 @@ class Thief extends Personnage
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getAgi()
     {
@@ -86,7 +86,7 @@ class Thief extends Personnage
     }
 
     /**
-     * @param mixed $agi
+     * @param int $agi
      */
     public function setAgi($agi)
     {
@@ -94,7 +94,7 @@ class Thief extends Personnage
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getStr()
     {
@@ -102,7 +102,7 @@ class Thief extends Personnage
     }
 
     /**
-     * @param mixed $str
+     * @param int $str
      */
     public function setStr($str)
     {
@@ -110,7 +110,7 @@ class Thief extends Personnage
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getDex()
     {
@@ -118,7 +118,7 @@ class Thief extends Personnage
     }
 
     /**
-     * @param mixed $dex
+     * @param int $dex
      */
     public function setDex($dex)
     {
@@ -126,7 +126,7 @@ class Thief extends Personnage
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getLuck()
     {
@@ -134,7 +134,7 @@ class Thief extends Personnage
     }
 
     /**
-     * @param mixed $luck
+     * @param int $luck
      */
     public function setLuck($luck)
     {
