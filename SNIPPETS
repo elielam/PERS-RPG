@@ -1,0 +1,21 @@
+<?php
+
+    // AFFICHAGE DES ENNEMYS
+
+    foreach ($characters as $enemy) {
+        echo '
+        <div class="col-7 border border-dark mt-3">
+            <div class="row">
+                <div class="col-4 border border-dark border-left-0 border-top-0 border-bottom-0 text-center">
+                    <a href="?page=game&action=hit&enemy='.$enemy->id().'" style="color: black; text-decoration: none;"><h3 class="mt-2">'.$enemy->name().'</h3></a>
+                </div>
+                <div class="col-8">
+                    <div class="row text-center mt-3">
+                        <span class="fa fa-heart ml-auto mr-auto">'.$enemy->getLife().'</span>
+                        <span class="fa fa-shield ml-auto mr-auto">'.$enemy->getArmor().'</span>
+                        <span class="fa fa-bomb ml-auto mr-auto"> <?= $enemy->'.$enemy->getDegat().'</span>
+                    </div>
+                </div>
+            </div>
+        </div>';
+    }

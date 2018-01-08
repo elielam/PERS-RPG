@@ -1,0 +1,53 @@
+	<div class="container-fluid">
+
+		<div class="row justify-content-center">
+
+			<div class="col-5">
+
+				<div class="row justify-content-center">
+
+					<div class="alert alert-info mt-5 col-12" role="alert">
+						<strong> Our community ! </strong> <br> We're already <?= $manager->count() ?> players
+					</div>
+
+					<?php
+					if ( $error != null ) {
+
+						echo
+						'<div class="alert alert-danger mt-3 col-11" role="alert">
+							<strong> '.$error["type"].' </strong> <br> '.$error["message"].'
+						</div>';
+
+					} else {
+
+						echo
+						'<div class="alert alert-info mt-3 col-11" role="alert">
+							<strong> Welcome to RPGame ! </strong> <br> Load or create an account to play at our game.
+						</div>';
+
+					}
+					?>
+
+					<form action="?page=home" method="post" class="mt-4 col-11">
+
+						<div class="form-group">
+							<div class="col-12">
+								<input type="text" class="form-control" name="nameField" placeholder="Enter your character Name !" maxlength="10">
+								<select class="form-control mt-3" id="exampleFormControlSelect1" name="typeField">
+									<option name="nameTypeField">Wizard</option>
+									<option name="nameTypeField">Fighter</option>
+								</select>
+								<button type="submit" class="btn btn-primary mt-3 ml-0" name="createBtn">Create</button>
+								<button type="submit" class="btn btn-primary mt-3 ml-0" name="loadBtn">Load</button>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>

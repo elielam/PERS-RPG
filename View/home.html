@@ -1,0 +1,38 @@
+<nav class="navbar navbar-dark bg-dark">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<a class="nav-link mx-auto pr-0 mr-0" style="color: white;"><span class="fa fa-heart"> <?= $_SESSION["character"]->getLife(); ?> </span></a>
+	<a class="nav-link mx-auto pr-0 mr-0" style="color: white;"><span class="fa fa-shield"> <?= $_SESSION["character"]->getArmor(); ?> </span></a>
+	<a class="nav-link mx-auto" style="color: white;"><span class="fa fa-bomb"> <?= $_SESSION["character"]->getDegat(); ?></span></a>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav text-center">
+			<table class="mt-2" border="1" style="color: white; width: 100%">
+				<tbody>
+				<tr>
+					<?php for($i=0;$i<16;$i++){
+
+						echo '<td>
+							<p style="color: transparent">WRAPPER</p>
+						</td>';
+
+					} ?>
+				</tr>
+				</tbody>
+			</table>
+		</ul>
+	</div>
+</nav>
+
+
+<div class="container-fluid">
+
+	<div class="row justify-content-center">
+
+		<canvas id="renderSurface" style="height: 88vh; min-width: 100%"></canvas>
+
+	</div>
+
+</div>
+
+<script src="Assets/app/app.js"></script>
