@@ -29,10 +29,28 @@
 
 	<div class="row justify-content-center">
 
-		<canvas id="renderSurface" style="height: 88vh; min-width: 100%"></canvas>
+		<!-- Render surface -->
+		<canvas id="renderSurface" style="height: 88vh; min-width: 100%; display: none">
+
+		</canvas>
+
+		<!-- Joining information -->
+		<div id="joininfo" class="mt-5 text-center" style="visibility: hidden; width: 100%;">
+			<span id="joininfo_text"></span>
+		</div>
+
+		<!-- Chatbox -->
+		<div id="chatbox" class="col-4 ml-0 mr-auto" style="visibility: hidden">
+			<span id="chatbox_text"></span>
+		</div>
+		<input id="chatbox_entry" class="ml-0 mr-auto" type="text" maxlength="100" spellcheck="false" onkeypress="onChatEnter( this, event )" style="visibility: hidden" />
+
+		<!-- Nickname box -->
+		<div id="nickname">
+			<span>Nickname:</span><br />
+			<input id="nickname_input" type="text" maxlength="15" spellcheck="false" onkeypress="onNicknameEnter( this, event )" />
+		</div>
 
 	</div>
 
 </div>
-
-<script src="Assets/app/app.js"></script>
