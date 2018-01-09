@@ -27,6 +27,8 @@ switch ($action) {
         $enemy = $manager->get((int)$enemyId);
         $gameManager->hit($enemy);
         $manager->update($enemy);
+        $eventAttacker = $gameManager->getEventAttacker();
+        $eventAttacked = $gameManager->getEventAttacked();
 
         break;
 

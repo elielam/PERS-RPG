@@ -48,13 +48,35 @@
 
 			<div class="col"></div>
 
-			<div class="col-8 mr-3 mt-3 p-0" style="border: 1px solid whitesmoke; height: 150px; color: white">
-				<p class="ml-2" style="height: 90px;"></p>
-				<div class="row justify-content-center mt-auto mb-0">
-					<input type="text" class="form-control col-10" name="chatMessageField" placeholder="Enter your message !" maxlength="140">
-					<button type="submit" class="btn btn-primary ml-3 col-1" name="chatMessageBtn">Chat</button>
+			<div class="col-8">
+
+				<div class="row">
+
+					<div class="col-12 mr-3 mt-3 p-0" style="border: 1px solid whitesmoke; height: 200px; background-color: white; overflow-y: scroll; overflow-x: hidden">
+						<?php
+
+						if ($event =! null) {
+							foreach($eventAttacker as $e) {
+								echo "<p class='mb-0'> System : ".$e." </p>";
+							}
+						} else {
+							echo "<p class='mb-0'> System : ".$e." </p>";
+						}
+
+						?>
+
+					</div>
+
+					<form class="col-12 border-0">
+						<input class="col-12 form-control" type="text" name="nameField" placeholder="Enter you message !">
+						<button type="submit" style="display: none"></button>
+					</form>
+
 				</div>
+
 			</div>
+
+			<div class="col"></div>
 
 		</div>
 
