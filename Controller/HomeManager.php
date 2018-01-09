@@ -33,6 +33,9 @@ switch ($action) {
 		break;
 }
 
+// SIGNUP
+// ##########################################################################################################
+
 if (isset($_POST['createBtn'])) {
 
     $characterName = $_POST['nameField'];
@@ -78,7 +81,11 @@ if (isset($_POST['createBtn'])) {
     }
 
 }
-else if (isset($_POST['loadBtn'])) {
+
+// LOGIN
+// ##########################################################################################################
+
+if (isset($_POST['loadBtn'])) {
 
     $characterName = $_POST['nameField'];
 
@@ -106,11 +113,15 @@ if ($error == null) {
     );
 }
 
+// INJECT VIEW
+// ##########################################################################################################
 
 if ($_SESSION == null) {
 	require "/View/login.html";
 } else {
     $characters = $manager->getList($_SESSION["character"]->name());
+    $characterUpt = $_SESSION['character']->name();
+    $_SESSION['character'] = $manager->get($characterUpt);
 	require "/View/home.html";
 }
 

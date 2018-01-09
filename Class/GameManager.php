@@ -6,10 +6,19 @@ class GameManager {
         // LINK TO FUNCTION WORK
         // NEED TO DEV METHOD OF HINT FUNCTION
 
-        $rand = rand(0, 100);
+        // Critical with luck
+        /* $rand = rand(0, 100); */
 
 
         exit();
+    }
+
+    public function damage (Personnage $perso, $int) {
+
+    }
+
+    public function minusLife (Personnage $perso, $int) {
+
     }
 
 }

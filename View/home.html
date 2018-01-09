@@ -2,18 +2,15 @@
 	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-	<a class="nav-link mx-auto pr-0 mr-0" style="color: white;"><span class="fa fa-heart"> <?= $_SESSION["character"]->getLife(); ?> </span></a>
-	<a class="nav-link mx-auto pr-0 mr-0" style="color: white;"><span class="fa fa-shield"> <?= $_SESSION["character"]->getArmor(); ?> </span></a>
-	<a class="nav-link mx-auto" style="color: white;"><span class="fa fa-bomb"> <?= $_SESSION["character"]->getDegat(); ?></span></a>
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<ul class="navbar-nav text-center">
-			<table class="mt-2" border="1" style="color: white; width: 100%">
+			<table class="mt-3" border="1" style="color: white; width: 100%">
 				<tbody>
 				<tr>
 					<?php for($i=0;$i<16;$i++){
 
 						echo '<td>
-							<p style="color: transparent">WRAPPER</p>
+					<a href="#"><p style="color: transparent">ITEMSLOT</p></a>
 						</td>';
 
 					} ?>
@@ -21,6 +18,46 @@
 				</tbody>
 			</table>
 		</ul>
+		<div class="row">
+
+			<div class="mt-3 col-3 ml-3" style="border: 1px solid whitesmoke; height: 150px; color: white">
+				<div class="row">
+					<ul class="pl-4 mt-2 col-6 text-left" style="list-style-type: none;">
+						<li>
+							<span class="fa fa-heart"> <?= $_SESSION["character"]->getLife(); ?> </span>
+							<span class="ml-3 fa fa-bomb"> <?= $_SESSION["character"]->getDegat(); ?></span>
+							<span class="ml-3 fa fa-shield"> <?= $_SESSION["character"]->getArmor(); ?> </span>
+						</li>
+					</ul>
+					<ul class="pr-4 mt-2 col-6 text-right" style="list-style-type: none;">
+						<li>
+							<span> str : <?= $_SESSION["character"]->getStr(); ?> </span>
+						</li>
+						<li>
+							<span> agi : <?= $_SESSION["character"]->getAgi(); ?> </span>
+						</li>
+						<li>
+							<span> dex : <?= $_SESSION["character"]->getDex(); ?></span>
+						</li>
+						<li>
+							<span> luck : <?= $_SESSION["character"]->getLuck(); ?></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col"></div>
+
+			<div class="col-8 mr-3 mt-3 p-0" style="border: 1px solid whitesmoke; height: 150px; color: white">
+				<p class="ml-2" style="height: 90px;"></p>
+				<div class="row justify-content-center mt-auto mb-0">
+					<input type="text" class="form-control col-10" name="chatMessageField" placeholder="Enter your message !" maxlength="140">
+					<button type="submit" class="btn btn-primary ml-3 col-1" name="chatMessageBtn">Chat</button>
+				</div>
+			</div>
+
+		</div>
+
 	</div>
 </nav>
 
@@ -29,8 +66,33 @@
 
 	<div class="row justify-content-center">
 
-		<canvas id="renderSurface" style="height: 88vh; min-width: 100%"></canvas>
+		<canvas id="renderSurface" style="height: 88vh; min-width: 100%;display: none"></canvas>
 
+		<?php
+			foreach($characters as $enemy) {
+			echo "<div class='col-3 img-thumbnail text-center mt-4 ml-4'>";
+				echo "<div class='row justify-content-center'>";
+					echo "<p> UID : "; echo $enemy->id(); echo "</p>";
+					echo "<p class='ml-5'> Name : "; echo $enemy->name(); echo "</p>";
+					echo "<p class='ml-5'> Classe : "; echo $enemy->type(); echo "</p>";
+				echo "</div>";
+				echo "<div class='row justify-content-center'>";
+					echo "<p> Life : "; echo $enemy->getLife(); echo "</p>";
+					echo "<p class='ml-5'> Armor : "; echo $enemy->getArmor(); echo "</p>";
+					echo "<p class='ml-5'> Degat : "; echo $enemy->getDegat(); echo "</p>";
+				echo "</div>";
+				echo "<div class='row justify-content-center'>";
+					echo "<p> Str : "; echo $enemy->getStr(); echo "</p>";
+					echo "<p class='ml-5'> Agi : "; echo $enemy->getAgi(); echo "</p>";
+					echo "<p class='ml-5'> Dex : "; echo $enemy->getDex(); echo "</p>";
+					echo "<p class='ml-5'> Luck : "; echo $enemy->getLuck(); echo "</p>";
+				echo "</div>";
+				echo "<form action='?page=home' method='post'>";
+					echo '<button type="submit" class="btn btn-primary ml-3 col-12 ml-auto mr-auto" name="chatMessageBtn">Attack</button>';
+				echo "</form>";
+			echo "</div>";
+			}
+		?>
 	</div>
 
 </div>

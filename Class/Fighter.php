@@ -22,11 +22,11 @@ class Fighter extends Personnage
         parent::__construct($donnees);
         $this->_life = 100;
         $this->_degat = 150;
-        $this->_armor = 200;
-        $this->_agi = 0;
-        $this->_str = 0;
-        $this->_dex = 0;
-        $this->_luck = 0;
+        $this->_armor = 100;
+        $this->_agi = 40;
+        $this->_str = 80;
+        $this->_dex = 60;
+        $this->_luck = 40;
     }
 
     /**
