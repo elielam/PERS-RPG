@@ -70,9 +70,13 @@
 
 		<?php
 			foreach($characters as $enemy) {
+
+			$enemyId = $enemy->id();
+			$url = '?page=home&action=hit&enemy='.$enemyId;
+
 			echo "<div class='col-3 img-thumbnail text-center mt-4 ml-4'>";
 				echo "<div class='row justify-content-center'>";
-					echo "<p> UID : "; echo $enemy->id(); echo "</p>";
+					echo "<p> UID : "; echo $enemyId; echo "</p>";
 					echo "<p class='ml-5'> Name : "; echo $enemy->name(); echo "</p>";
 					echo "<p class='ml-5'> Classe : "; echo $enemy->type(); echo "</p>";
 				echo "</div>";
@@ -87,13 +91,13 @@
 					echo "<p class='ml-5'> Dex : "; echo $enemy->getDex(); echo "</p>";
 					echo "<p class='ml-5'> Luck : "; echo $enemy->getLuck(); echo "</p>";
 				echo "</div>";
-				echo "<form action='?page=home' method='post'>";
+				echo "<form action=$url method='post'>";
 					echo '<button type="submit" class="btn btn-primary ml-3 col-12 ml-auto mr-auto" name="chatMessageBtn">Attack</button>';
 				echo "</form>";
 			echo "</div>";
 			}
 		?>
-	</div>
+	</div>;
 
 </div>
 

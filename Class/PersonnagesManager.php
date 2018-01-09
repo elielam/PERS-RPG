@@ -13,13 +13,17 @@ class PersonnagesManager {
   	}
 
   	public function add (Personnage $perso) {
-  		$q = $this->_db->prepare('INSERT INTO characters(name, life, armor, degat, type) VALUES(:name, :life, :armor, :degat, :type)');
+  		$q = $this->_db->prepare('INSERT INTO characters(name, life, armor, degat, type, str, agi, dex, luck) VALUES(:name, :life, :armor, :degat, :type, :str, :agi, :dex, :luck)');
 	    $q->execute(array(
             ':name' => $perso->name(),
             ':life' => $perso->getLife(),
             ':armor' => $perso->getArmor(),
             ':degat' => $perso->getDegat(),
             ':type' => $perso->type(),
+            ':str' => $perso->getStr(),
+            ':agi' => $perso->getAgi(),
+            ':dex' => $perso->getDex(),
+            ':luck' => $perso->getLuck()
         ));
 	    
 	    $perso->hydrate([
@@ -49,13 +53,13 @@ class PersonnagesManager {
 
   	public function get ($info) {
   		if (is_int($info)) {
-          $q = $this->_db->query('SELECT id, name, type FROM characters WHERE id = '.$info);
+          $q = $this->_db->query('SELECT id, name, type, life, degat, armor, str, agi, dex, luck FROM characters WHERE id = '.$info);
           $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
           return new $donnees["type"]($donnees);
 
 	    } else {
-	        $q = $this->_db->prepare('SELECT id, name, type, life, degat, armor FROM characters WHERE name = :name');
+	        $q = $this->_db->prepare('SELECT id, name, type, life, degat, armor, str, agi, dex, luck FROM characters WHERE name = :name');
             $q->execute([':name' => $info]);
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
@@ -63,6 +67,10 @@ class PersonnagesManager {
             $character->setLife($donnees["life"]);
             $character->setDegat($donnees["degat"]);
             $character->setArmor($donnees["armor"]);
+            $character->setStr($donnees["str"]);
+            $character->setAgi($donnees["agi"]);
+            $character->setDex($donnees["dex"]);
+            $character->setLuck($donnees["luck"]);
 
             return $character;
 
@@ -73,7 +81,7 @@ class PersonnagesManager {
   	public function getList ($name) {
   		$persos = [];
 
-	    $q = $this->_db->prepare('SELECT id, name, type, life, degat, armor FROM characters ORDER BY name');
+	    $q = $this->_db->prepare('SELECT id, name, type, life, degat, armor, str, agi, dex, luck FROM characters ORDER BY name');
 	    $q->execute([':name' => $name]);
 
 	    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
@@ -88,14 +96,17 @@ class PersonnagesManager {
   	}
 
   	public function update (Personnage $perso) {
-  		$q = $this->_db->prepare('UPDATE characters SET name, life, armor, degat = :name, :life, :armor, :degat WHERE id = :id');
+  		$q = $this->_db->prepare('UPDATE characters SET name, life, armor, degat, str, agi, dex, luck = :name, :life, :armor, :degat, :str, :agi, :dex, :luck WHERE id = :id');
     
 	    $q->bindValue(':nom', $perso->name(), PDO::PARAM_INT);
 	    $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
 	    $q->bindValue(':life', $perso->getLife(), PDO::PARAM_INT);
 	    $q->bindValue(':armor', $perso->getArmor(), PDO::PARAM_INT);
 	    $q->bindValue(':degat', $perso->getDegat(), PDO::PARAM_INT);
-
+	    $q->bindValue(':str', $perso->getStr(), PDO::PARAM_INT);
+	    $q->bindValue(':agi', $perso->getAgi(), PDO::PARAM_INT);
+	    $q->bindValue(':dex', $perso->getDex(), PDO::PARAM_INT);
+	    $q->bindValue(':luck', $perso->getLuck(), PDO::PARAM_INT);
 	    $q->execute();
   	}
 

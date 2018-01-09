@@ -23,10 +23,10 @@ class Magician extends Personnage
         $this->_life = 50;
         $this->_degat = 200;
         $this->_armor = 50;
-        $this->_agi = 0;
-        $this->_str = 0;
-        $this->_dex = 0;
-        $this->_luck = 0;
+        $this->_agi = 21;
+        $this->_str = 78;
+        $this->_dex = 45;
+        $this->_luck = 58;
     }
 
     /**
