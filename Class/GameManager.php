@@ -20,74 +20,71 @@ class GameManager {
         );
 
         // Attacker
-        $fAgi = $_SESSION['character']->getAgi();
-        $fStr = $_SESSION['character']->getStr();
-        $fDex = $_SESSION['character']->getDex();
-        $fLuck = $_SESSION['character']->getLuck();
-        $fDamage = $_SESSION['character']->getDegat();
+        $agi = $_SESSION['character']->getAgi();
+        $str = $_SESSION['character']->getStr();
+        $dex = $_SESSION['character']->getDex();
+        $luck = $_SESSION['character']->getLuck();
+        $damage = $_SESSION['character']->getDegat();
 
         // STRONG
-        $fDamage += $fStr/10;
-        $eventAttacker['str'] = "Str : ".$fStr." || PostStr : ".($fStr/10);
+        $damage += $str/10;
+        $eventAttacker['str'] = "Str : ".$str." || PostStr : ".($str/10);
 
         // AGILITY
-        if ($fAgi == 100 ) {
-            $fDamage = $fDamage*2;
+        if ($agi == 100 ) {
+            $damage = $damage*2;
             $eventAttacker['agi'] = "Multiplicateur x2";
-        } else if ($fAgi >= 75 && $fAgi < 100 ) {
-            $fDamage = $fDamage*1.75;
+        } else if ($agi >= 75 && $agi < 100 ) {
+            $damage = $damage*1.75;
             $eventAttacker['agi'] = "Multiplicateur x1.75";
-        } else if ($fAgi >= 50 && $fAgi < 75 ) {
-            $fDamage = $fDamage*1.5;
+        } else if ($agi >= 50 && $agi < 75 ) {
+            $damage = $damage*1.5;
             $eventAttacker['agi'] = "Multiplicateur 1.5";
-        } else if ($fAgi >= 25 && $fAgi < 50 ) {
-            $fDamage = $fDamage*1.25;
+        } else if ($agi >= 25 && $agi < 50 ) {
+            $damage = $damage*1.25;
             $eventAttacker['agi'] = "Multiplicateur x1.25";
         } else {
-            $fDamage = $fDamage+$fAgi;
+            $damage = $damage+$agi;
             $eventAttacker['agi'] = "Ajout point d'agi";
         }
 
         // DEXTERITY
-        if ($fDex == 100 ) {
+        if ($dex == 100 ) {
             $eventAttacker['dex'] = "Pas de perte";
-        } else if ($fDex >= 80 && $fDex < 100 ) {
-            $fDamage -= ($fDamage/10);
+        } else if ($dex >= 80 && $dex < 100 ) {
+            $damage -= ($damage/10);
             $eventAttacker['dex'] = "Damage - Damage/10";
-        } else if ($fDex >= 60 && $fDex < 80 ) {
-            $fDamage -= ($fDamage/8);
+        } else if ($dex >= 60 && $dex < 80 ) {
+            $damage -= ($damage/8);
             $eventAttacker['dex'] = "Damage - Damage/8";
-        } else if ($fDex >= 40 && $fDex < 60 ) {
-            $fDamage -= ($fDamage/6);
+        } else if ($dex >= 40 && $dex < 60 ) {
+            $damage -= ($damage/6);
             $eventAttacker['dex'] = "Damage - Damage/6";
-        } else if ($fDex >= 20 && $fDex < 40 ) {
-            $fDamage -= ($fDamage/4);
+        } else if ($dex >= 20 && $dex < 40 ) {
+            $damage -= ($damage/4);
             $eventAttacker['dex'] = "Damage - Damage/4";
-        } else if ($fDex >= 0 && $fDex < 20 ) {
-            $fDamage -= ($fDamage/2);
+        } else if ($dex >= 0 && $dex < 20 ) {
+            $damage -= ($damage/2);
             $eventAttacker['dex'] = "Damage - Damage/2";
         }
 
         // LUCK
         $rand = rand(1, 100);
-        if ($fLuck == $rand) {
-            $fDamage += (50/100)*$fDamage;
+        if ($luck == $rand) {
+            $damage += (50/100)*$damage;
             $eventAttacker['luck'] = "Super critique || rand : ".$rand;
-        } else if ($fLuck > $rand) {
-            $fDamage += (25/100)*$fDamage;
+        } else if ($luck > $rand) {
+            $damage += (25/100)*$damage;
             $eventAttacker['luck'] = "Critique || rand : ".$rand;
         }
 
-        //Test
+        $eventAttacker['damage'] = $damage;
+
         print_r($eventAttacker);
         echo "</br>";
-        echo $fDamage;
-        echo "</br>";
-
-        $this->damage($enemy, $fDamage);
 
         // Damage Function call
-
+        $this->damage($enemy, $damage);
 
     }
 
@@ -98,6 +95,7 @@ class GameManager {
             'agi' => '',
             'luck' => '',
             'armor' => '',
+            'damage' => ''
         );
 
         // Attacked
@@ -155,14 +153,13 @@ class GameManager {
             $eventAttacked['armor'] = "Vous n'avez pas d'armur";
         }
 
+        $eventAttacked['damage'] = $damage;
+
         echo "</br>";
         print_r($eventAttacked);
-        echo "</br>";
-        echo $damage;
 
-        exit();
-
-//        $this->minusLife($perso, $damage);
+        // Damage Function call
+        $this->minusLife($perso, $damage);
 
     }
 

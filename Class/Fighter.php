@@ -9,24 +9,17 @@
 class Fighter extends Personnage
 {
 
-    private $_life;
-    private $_degat;
-    private $_armor;
-    private $_agi;
-    private $_str;
-    private $_dex;
-    private $_luck;
+    private $_life = 2000;
+    private $_degat = 350;
+    private $_armor = 100;
+    private $_agi = 70;
+    private $_str = 70;
+    private $_dex = 50;
+    private $_luck = 30;
 
     public function __construct(array $donnees)
     {
         parent::__construct($donnees);
-        $this->_life = 100;
-        $this->_degat = 150;
-        $this->_armor = 100;
-        $this->_agi = 40;
-        $this->_str = 80;
-        $this->_dex = 60;
-        $this->_luck = 40;
     }
 
     /**

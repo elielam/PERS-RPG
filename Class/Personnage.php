@@ -14,14 +14,6 @@ abstract class Personnage {
 		$this->hydrate($donnees);
 	}
 
-	public function frapper(Personnage $perso) {
-
-	}
-
-	public function recevoirDegats() {
-
-	}
-
 	public function id () {
 		return $this->_id;
 	}

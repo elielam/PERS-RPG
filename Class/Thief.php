@@ -9,24 +9,17 @@
 class Thief extends Personnage
 {
 
-    private $_life;
-    private $_degat;
-    private $_armor;
-    private $_agi;
-    private $_str;
-    private $_dex;
-    private $_luck;
+    private $_life = 2000;
+    private $_degat = 200;
+    private $_armor = 35;
+    private $_agi = 70;
+    private $_str = 50;
+    private $_dex = 50;
+    private $_luck = 70;
 
     public function __construct(array $donnees)
     {
         parent::__construct($donnees);
-        $this->_life = 50;
-        $this->_degat = 200;
-        $this->_armor = 50;
-        $this->_agi = 0;
-        $this->_str = 0;
-        $this->_dex = 0;
-        $this->_luck = 62;
     }
 
     /**

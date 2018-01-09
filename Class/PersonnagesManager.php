@@ -96,18 +96,9 @@ class PersonnagesManager {
   	}
 
   	public function update (Personnage $perso) {
-  		$q = $this->_db->prepare('UPDATE characters SET name, life, armor, degat, str, agi, dex, luck = :name, :life, :armor, :degat, :str, :agi, :dex, :luck WHERE id = :id');
-    
-	    $q->bindValue(':nom', $perso->name(), PDO::PARAM_INT);
-	    $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
-	    $q->bindValue(':life', $perso->getLife(), PDO::PARAM_INT);
-	    $q->bindValue(':armor', $perso->getArmor(), PDO::PARAM_INT);
-	    $q->bindValue(':degat', $perso->getDegat(), PDO::PARAM_INT);
-	    $q->bindValue(':str', $perso->getStr(), PDO::PARAM_INT);
-	    $q->bindValue(':agi', $perso->getAgi(), PDO::PARAM_INT);
-	    $q->bindValue(':dex', $perso->getDex(), PDO::PARAM_INT);
-	    $q->bindValue(':luck', $perso->getLuck(), PDO::PARAM_INT);
-	    $q->execute();
-  	}
+
+        $this->_db->exec('UPDATE characters SET life='.$perso->getLife().', degat='.$perso->getDegat().', armor='.$perso->getArmor().', str='.$perso->getStr().', agi='.$perso->getAgi().', dex='.$perso->getDex().', luck='.$perso->getLuck().' WHERE id = '.$perso->id());
+
+    }
 
 }

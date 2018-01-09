@@ -9,24 +9,17 @@
 class Summoner extends Personnage
 {
 
-    private $_life;
-    private $_degat;
-    private $_armor;
-    private $_agi;
-    private $_str;
-    private $_dex;
-    private $_luck;
+    private $_life = 1500;
+    private $_degat = 200;
+    private $_armor = 55;
+    private $_agi = 21;
+    private $_str = 78;
+    private $_dex = 45;
+    private $_luck = 58;
 
     public function __construct(array $donnees)
     {
         parent::__construct($donnees);
-        $this->_life = 50;
-        $this->_degat = 200;
-        $this->_armor = 50;
-        $this->_agi = 0;
-        $this->_str = 0;
-        $this->_dex = 0;
-        $this->_luck = 0;
     }
 
     /**

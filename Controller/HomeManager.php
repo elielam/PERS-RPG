@@ -24,7 +24,9 @@ switch ($action) {
         } else {
             $enemyId = "null";
         }
-        $gameManager->hit($manager->get((int)$enemyId));
+        $enemy = $manager->get((int)$enemyId);
+        $gameManager->hit($enemy);
+        $manager->update($enemy);
 
         break;
 
