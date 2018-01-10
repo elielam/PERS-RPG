@@ -4,6 +4,12 @@ class GameManager {
 
     private $eventAttacker;
     private $eventAttacked;
+    private $manager;
+
+    public function __construct($db)
+    {
+        $this->manager = new PersonnagesManager($db);
+    }
 
     public function hit(Personnage $enemy) {
         // LINK TO FUNCTION WORK
@@ -20,6 +26,7 @@ class GameManager {
           'luck' => 'Pas de critique',
           'armor' => '',
           'damage' => '',
+          'event' => '',
         );
 
         // Attacker
@@ -162,7 +169,27 @@ class GameManager {
 
     public function minusLife (Personnage $perso, $damage) {
         $initLife = $perso->getLife();
-        $perso->setLife($initLife-$damage);
+        $isOk = $this->checkLife($perso, $damage);
+
+        if(is_numeric($isOk)) {
+            $this->eventAttacker['event'] = "Le héro ".$perso->name()." à été tué au combat .. :(";
+            $this->manager->delete($perso);
+            unset($perso);
+        } else {
+            $perso->setLife($initLife-$damage);
+        }
+
+    }
+
+    public function checkLife (Personnage $perso, $damage) {
+        $previsional = $perso->getLife()-$damage;
+        $return = false;
+        if ($previsional <= 0) {
+            $return = $perso->id();
+            unset($perso);
+            return $return;
+        }
+        return $return;
     }
 
     /**

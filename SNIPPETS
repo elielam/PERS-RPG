@@ -2,20 +2,52 @@
 
     // AFFICHAGE DES ENNEMYS
 
-    foreach ($characters as $enemy) {
-        echo '
-        <div class="col-7 border border-dark mt-3">
-            <div class="row">
-                <div class="col-4 border border-dark border-left-0 border-top-0 border-bottom-0 text-center">
-                    <a href="?page=game&action=hit&enemy='.$enemy->id().'" style="color: black; text-decoration: none;"><h3 class="mt-2">'.$enemy->name().'</h3></a>
-                </div>
-                <div class="col-8">
-                    <div class="row text-center mt-3">
-                        <span class="fa fa-heart ml-auto mr-auto">'.$enemy->getLife().'</span>
-                        <span class="fa fa-shield ml-auto mr-auto">'.$enemy->getArmor().'</span>
-                        <span class="fa fa-bomb ml-auto mr-auto"> <?= $enemy->'.$enemy->getDegat().'</span>
-                    </div>
-                </div>
-            </div>
-        </div>';
-    }
+//    foreach ($characters as $enemy) {
+//        echo '
+//        <div class="col-7 border border-dark mt-3">
+//            <div class="row">
+//                <div class="col-4 border border-dark border-left-0 border-top-0 border-bottom-0 text-center">
+//                    <a href="?page=game&action=hit&enemy='.$enemy->id().'" style="color: black; text-decoration: none;"><h3 class="mt-2">'.$enemy->name().'</h3></a>
+//                </div>
+//                <div class="col-8">
+//                    <div class="row text-center mt-3">
+//                        <span class="fa fa-heart ml-auto mr-auto">'.$enemy->getLife().'</span>
+//                        <span class="fa fa-shield ml-auto mr-auto">'.$enemy->getArmor().'</span>
+//                        <span class="fa fa-bomb ml-auto mr-auto"> <?= $enemy->'.$enemy->getDegat().'</span>
+//                    </div>
+//                </div>
+//            </div>
+//        </div>';
+//    }
+
+    // AFFICHAGE DES ENNEMYS
+
+//<!--<?php-->
+//			<!--foreach($characters as $enemy) {-->
+//
+//			<!--$enemyId = $enemy->id();-->
+//			<!--$url = '?page=home&action=hit&enemy='.$enemyId;-->
+//
+//			<!--echo "<div class='col-3 img-thumbnail text-center mt-4 ml-4'>";-->
+//				<!--echo "<div class='row justify-content-center'>";-->
+//					<!--echo "<p> UID : "; echo $enemyId; echo "</p>";-->
+//					<!--echo "<p class='ml-5'> Name : "; echo $enemy->name(); echo "</p>";-->
+//					<!--echo "<p class='ml-5'> Classe : "; echo $enemy->type(); echo "</p>";-->
+//				<!--echo "</div>";-->
+//				<!--echo "<div class='row justify-content-center'>";-->
+//					<!--echo "<p> Life : "; echo $enemy->getLife(); echo "</p>";-->
+//					<!--echo "<p class='ml-5'> Armor : "; echo $enemy->getArmor(); echo "</p>";-->
+//					<!--echo "<p class='ml-5'> Degat : "; echo $enemy->getDegat(); echo "</p>";-->
+//				<!--echo "</div>";-->
+//				<!--echo "<div class='row justify-content-center'>";-->
+//					<!--echo "<p> Str : "; echo $enemy->getStr(); echo "</p>";-->
+//					<!--echo "<p class='ml-5'> Agi : "; echo $enemy->getAgi(); echo "</p>";-->
+//					<!--echo "<p class='ml-5'> Dex : "; echo $enemy->getDex(); echo "</p>";-->
+//					<!--echo "<p class='ml-5'> Luck : "; echo $enemy->getLuck(); echo "</p>";-->
+//				<!--echo "</div>";-->
+//				<!--echo "<form action=$url method='post'>";-->
+//					<!--echo '<button type="submit" class="btn btn-primary ml-3 col-12 ml-auto mr-auto" name="chatMessageBtn">Attack</button>';-->
+//				<!--echo "</form>";-->
+//			<!--echo "</div>";-->
+//			<!--}-->
+//		<!--?><!---->-->

@@ -1,7 +1,7 @@
 <?php
 
 $error = null;
-$gameManager = new GameManager();
+$gameManager = new GameManager($db);
 
 if (isset($_REQUEST['action'])) {
 	$action = $_REQUEST['action'];
