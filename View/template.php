@@ -45,6 +45,7 @@
     <script src="Assets/app/app.js"></script>
     <script src="Assets/app/Arena.js"></script>
     <script src="Assets/app/Player.js"></script>
+    <script src="Assets/app/Ia.js"></script>
 
 </body>
 </html>

@@ -64,3 +64,20 @@
 
 </div>
 
+<script type="text/javascript">
+
+    var characterId = '<?php echo $_SESSION["character"]->id(); ?>';
+    var characterName = '<?php echo $_SESSION["character"]->name(); ?>';
+    var characterClass = '<?php echo $_SESSION["character"]->type(); ?>';
+    var characterLife = '<?php echo $_SESSION["character"]->getLife(); ?>';
+    var characterArmor = '<?php echo $_SESSION["character"]->getArmor(); ?>';
+    var characterStr = '<?php echo $_SESSION["character"]->getStr(); ?>';
+    var characterDex = '<?php echo $_SESSION["character"]->getDex(); ?>';
+    var characterAgi = '<?php echo $_SESSION["character"]->getAgi(); ?>';
+    var characterLuck = '<?php echo $_SESSION["character"]->getLuck(); ?>';
+
+    var enemysLength = '<?php echo count($characters) ?>';
+
+</script>
+
+

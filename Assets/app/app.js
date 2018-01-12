@@ -11,11 +11,17 @@ Game = function(canvasId) {
     // On initie la scène avec une fonction associé à l'objet Game
     this.scene = this._initScene(engine);
 
+    this.scene.ambientColor = new BABYLON.Color3.Black();
+
     // On ajoute le joueur
     var _player = new Player(_this, canvas);
 
     // On ajoute la map
     var _arena = new Arena(_this);
+
+    // On ajoute le ou les enemys
+    var _ia = new Ia(_this);
+
 
     // Permet au jeu de tourner
     engine.runRenderLoop(function () {
@@ -29,6 +35,13 @@ Game = function(canvasId) {
         }
     },false);
 
+    // Collision detect
+    if (_player.intersectsMesh(_ia, true)) {
+        console.log("collision");
+    } else {
+        console.log("Pas de collision");
+    }
+
 };
 
 
@@ -40,3 +53,4 @@ Game.prototype = {
         return scene;
     }
 };
+
