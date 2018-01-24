@@ -1,12 +1,8 @@
 <?php
 
-	function chargerClasse($classname)
-	{
-	  require "/Class/".$classname.'.php';
-	}
-
-
-    spl_autoload_register('chargerClasse');
+    function __autoload($class_name) {
+        include 'class/' . $class_name . '.php';
+    }
 
     $db = new PDO('mysql:host=localhost;dbname=app_rpg','root','');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
@@ -26,11 +22,7 @@
 	switch ($page) {
 
 		case 'home':
-			require "/Controller/HomeManager.php";
-			break;
-
-		case 'game':
-			require "/Controller/GameManager.php";
+			require "controller/HomeManager.php";
 			break;
 			
 	}
@@ -39,4 +31,4 @@
 
 	ob_end_clean();
 
-	require "/View/template.php";
+	require "view/template.php";
